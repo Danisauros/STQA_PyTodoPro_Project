@@ -1,3 +1,4 @@
+Test ID,Security Area,Test Objective,Preconditions,Test Steps,Test Data,Expected Result,Actual Result,Status,Evidence,Defect ID
 SEC-001,Authentication,Verify unauthenticated users cannot access task list,User logged out,GET /api/tasks,None,401 Unauthorized,401 Unauthorized - authentication required,Pass,SEC-001-003-unauthenticated-access.png,
 SEC-002,Authentication,Verify unauthenticated users cannot access dashboard,User logged out,GET /api/dashboard,None,401 Unauthorized,401 Unauthorized - authentication required,Pass,SEC-001-003-unauthenticated-access.png,
 SEC-003,Authorisation,Verify unauthenticated users cannot create tasks,User logged out,POST /api/tasks,Unauthorised Security Test,401 Unauthorized,401 Unauthorized - authentication required,Pass,SEC-001-003-unauthenticated-access.png,
