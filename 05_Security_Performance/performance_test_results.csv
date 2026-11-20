@@ -1,0 +1,5 @@
+Test ID,Test Scenario,Endpoint,Test Load,Successful Requests,Failed Requests,Min Response Time (ms),Average Response Time (ms),Median Response Time (ms),P95 Response Time (ms),Max Response Time (ms),Total Duration (s),Throughput (req/s),Error Rate,Status
+PERF-001,Sequential task API requests,GET /api/tasks,20 sequential,20,0,29.19,36.92,34.80,48.33,68.34,Not recorded,Not recorded,0%,PASS
+PERF-002,Sequential dashboard API requests,GET /api/dashboard,20 sequential,20,0,28.60,31.63,30.11,37.58,45.99,0.73,27.44,0%,PASS
+PERF-003,Sequential category API requests,GET /api/categories,20 sequential,20,0,30.60,36.37,33.95,38.07,83.69,0.80,25.10,0%,PASS
+PERF-004,Concurrent task API requests,GET /api/tasks,5 workers x 4 requests,20,0,8.95,33.67,10.36,110.38,125.04,2.62,7.63,0%,PASS
