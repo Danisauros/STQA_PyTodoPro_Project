@@ -1,8 +1,13 @@
-Test ID,Security Area,Test Objective,Preconditions,Test Steps,Test Data,Expected Result,Actual Result,Status,Evidence,Defect ID
-SEC-001,Authentication,Verify unauthenticated users cannot access task list,User logged out,GET /api/tasks,None,401 Unauthorized,401 Unauthorized - authentication required,Pass,SEC-001-003-unauthenticated-access.png,
-SEC-002,Authentication,Verify unauthenticated users cannot access dashboard,User logged out,GET /api/dashboard,None,401 Unauthorized,401 Unauthorized - authentication required,Pass,SEC-001-003-unauthenticated-access.png,
-SEC-003,Authorisation,Verify unauthenticated users cannot create tasks,User logged out,POST /api/tasks,Unauthorised Security Test,401 Unauthorized,401 Unauthorized - authentication required,Pass,SEC-001-003-unauthenticated-access.png,
-SEC-004,Authorisation,Verify users cannot view another user's task,User A and B registered; task 8 belongs to B,GET /api/tasks/8 as User A,Task ID 8,404 Not Found,404 Not Found - error not found,Pass,SEC-004-cross-user-view.png,
-SEC-005,Authorisation,Verify users cannot update another user's task,User A and B registered; task 8 belongs to B,PUT /api/tasks/8 as User A,Modified by User A,404 Not Found,404 Not Found - error not found,Pass,SEC-005-cross-user-update.png,
-SEC-006,Authorisation,Verify users cannot delete another user's task,User A and B registered; task 8 belongs to B,DELETE /api/tasks/8 as User A,Task ID 8,Access denied; task remains available to User B,200 OK - deletion succeeded; User B subsequently received 404 Not Found,Fail,SEC-006-cross-user-delete.png,SEC-DEF-001
-SEC-007,Logout and session handling,Authenticate User A then logout and access protected API using the same session,GET /api/tasks,401 Unauthorized,401 Unauthorized,Pass,Session cleared successfully and protected API access denied after logout
+Test ID,Security Area,Test Objective,Preconditions,Test Steps,Test Data,Expected Result,Actual Result,Status,Defect ID
+SEC-001,Authentication,Verify unauthenticated users cannot access task list,User logged out,GET /api/tasks,None,401 Unauthorized,401 Unauthorized - authentication required,PASS,
+SEC-002,Authentication,Verify unauthenticated users cannot access dashboard,User logged out,GET /api/dashboard,None,401 Unauthorized,401 Unauthorized - authentication required,PASS,
+SEC-003,Authorisation,Verify unauthenticated users cannot create tasks,User logged out,POST /api/tasks,Unauthorised Security Test,401 Unauthorized,401 Unauthorized - authentication required,PASS,
+SEC-004,Authorisation,Verify users cannot view another user's task,User A and B registered; task 8 belongs to B,GET /api/tasks/8 as User A,Task ID 8,404 Not Found,404 Not Found - error not found,PASS,
+SEC-005,Authorisation,Verify users cannot update another user's task,User A and B registered; task 8 belongs to B,PUT /api/tasks/8 as User A,Modified by User A,404 Not Found,404 Not Found - error not found,PASS,
+SEC-006,Authorisation,Verify users cannot delete another user's task,User A and B registered; task 8 belongs to B,DELETE /api/tasks/8 as User A,Task ID 8,Access denied; task remains available to User B,200 OK - deletion succeeded; User B subsequently received 404 Not Found,FAIL,SEC-DEF-001
+SEC-007,Session Management,Verify protected API access is denied after logout,User A authenticated,Access GET /api/tasks; logout using GET /logout; access GET /api/tasks again,User A session,200 before logout and 401 after logout,200 before logout; 302 logout; 401 after logout,PASS,
+SEC-008,Input Validation,Verify task title rejects invalid data types,User authenticated,POST /api/tasks,Title = 123,400 Bad Request,500 Internal Server Error,FAIL,SEC-DEF-002
+SEC-009,Input Validation,Verify task creation rejects missing title,User authenticated,POST /api/tasks,Description only,400 Bad Request,400 Bad Request,PASS,
+SEC-010,Input Validation,Verify system handles non-existent task IDs,User authenticated,GET /api/tasks/999999,Task ID = 999999,404 Not Found,404 Not Found,PASS,
+SEC-011,HTTP Method Validation,Verify unsupported HTTP methods are rejected,User authenticated,PUT /api/categories,JSON request body,405 Method Not Allowed,405 Method Not Allowed,PASS,
+
