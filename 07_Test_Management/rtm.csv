@@ -1,1 +1,10 @@
-
+Requirement/Feature,Test Scenario,Test Case ID(s),Test Type/Technique,Result,Defect ID
+REQ-01: User Registration,Valid registration, duplicate username overwrite, length limits, and multi-account browser registration,TC-BB-001; TC-BB-002; TC-BB-003,Black-Box (EP / BVA),Fail,DEF-003; DEF-004; DEF-005
+REQ-02: User Login,Valid and invalid username/password authentication combinations,TC-BB-012; TC-BB-013; TC-BB-014; TC-BB-015,Black-Box (Decision Table),Pass,N/A
+REQ-03: User Logout,Session termination and browser Back button protection,TC-BB-021,Black-Box (State Transition),Pass,N/A
+REQ-04: Task Listing, Filter & Search,Combined Category, Status, and Title Search filtering,TC-BB-016; TC-BB-017,Black-Box (Decision Table),Pass,N/A
+REQ-05: Create Task,Valid task creation and invalid 5-digit year date handling,TC-BB-004; TC-BB-005,Black-Box (EP),Fail,DEF-001
+REQ-06: Edit & Complete Task,State transitions between Open and Done task states,TC-BB-018; TC-BB-019,Black-Box (State Transition),Pass,N/A
+REQ-07: Delete Task,Task deletion and direct URL access to deleted task ID,TC-BB-020,Black-Box (State Transition),Pass,N/A
+REQ-08: Task Urgency Classification,Due-date urgency boundaries (T-2, T-1, T, T+1, T+2, T+3, Blank),TC-BB-006; TC-BB-007; TC-BB-008; TC-BB-009; TC-BB-010; TC-BB-011,Black-Box (BVA),Fail,DEF-002
+REQ-09: Summary Dashboard,Dashboard counter synchronization on task completion,TC-BB-018,Black-Box (State Transition),Pass,N/A
